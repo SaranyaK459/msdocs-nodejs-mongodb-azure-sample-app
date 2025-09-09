@@ -35,17 +35,7 @@ pipeline {
                 archiveArtifacts artifacts: "${ARTIFACT_NAME}", fingerprint: true
             }
         }
-
-        stage('Download Artifact') {
-            steps {
-                copyArtifacts(
-                    projectName: 'pipeline11',
-                    filter: ARTIFACT_NAME,
-                    fingerprintArtifacts: true
-                )
-            }
-        }
-
+        
         stage('Login to Azure') {
             steps {
                 withCredentials([
